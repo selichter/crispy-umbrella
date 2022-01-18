@@ -16,8 +16,9 @@ let package = Package(
         .library(
             name: "Models",
             targets: ["Models"]),
-        .library(name: "AppCore", targets: ["AppCore"])
-        
+        .library(name: "AppCore", targets: ["AppCore"]),
+        .library(name: "ProjectsCore", targets: ["ProjectsCore"])
+
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.9.0")
@@ -38,9 +39,18 @@ let package = Package(
         .target(
             name: "AppCore",
             dependencies: ["Models",
+                           "ProjectsCore",
                             .product(name: "ComposableArchitecture",
                                               package: "swift-composable-architecture")]
-        )
-        
+        ),
+        .target(
+            name: "ProjectsCore",
+            dependencies: ["Models",
+                            .product(name: "ComposableArchitecture",
+                                              package: "swift-composable-architecture")]
+        ),
+        .testTarget(
+            name: "ProjectsCoreTests",
+            dependencies: ["ProjectsCore", "AppCore"])
     ]
 )

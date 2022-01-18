@@ -12,7 +12,7 @@ import ComposableArchitecture
 
 struct ContentView: View {
     let store: Store<AppState, AppAction>
-    
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             ForEach(viewStore.tasks) { task in

@@ -11,7 +11,7 @@ public struct Task: Identifiable {
     public let id: UUID = UUID()
     public var title: String
     public var isCompleted: Bool = false
-    
+
     public init(title: String, isCompleted: Bool = false) {
         self.title = title
         self.isCompleted = isCompleted

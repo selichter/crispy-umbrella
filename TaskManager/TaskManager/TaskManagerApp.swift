@@ -9,7 +9,6 @@ import SwiftUI
 import ComposableArchitecture
 import AppCore
 
-
 @main
 struct TaskManagerApp: App {
     var body: some Scene {
