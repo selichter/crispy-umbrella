@@ -17,8 +17,8 @@ struct TaskManagerApp: App {
                 initialState: AppState(),
                 reducer: appReducer,
                 environment: AppEnvironment()
-              )
-            )
+                )
+            ).padding(16)
         }
     }
 }
