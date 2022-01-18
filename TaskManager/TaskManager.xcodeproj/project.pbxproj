@@ -17,6 +17,7 @@
 		DFAC182B2795153C000E7EE2 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = DFAC182A2795153C000E7EE2 /* AppCore */; };
 		DFAC182D2795153C000E7EE2 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = DFAC182C2795153C000E7EE2 /* Models */; };
 		DFAC183027951625000E7EE2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DFAC182F27951625000E7EE2 /* ComposableArchitecture */; };
+		DFAC18322797229D000E7EE2 /* AddProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC18312797229D000E7EE2 /* AddProject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		DFAC181827951504000E7EE2 /* TaskManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITests.swift; sourceTree = "<group>"; };
 		DFAC181A27951504000E7EE2 /* TaskManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DFAC182827951526000E7EE2 /* TaskManagerAppKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TaskManagerAppKit; path = ../TaskManagerAppKit; sourceTree = "<group>"; };
+		DFAC18312797229D000E7EE2 /* AddProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				DFAC17FF27951501000E7EE2 /* ContentView.swift */,
 				DFAC180127951503000E7EE2 /* Assets.xcassets */,
 				DFAC180327951503000E7EE2 /* Preview Content */,
+				DFAC18312797229D000E7EE2 /* AddProject.swift */,
 			);
 			path = TaskManager;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFAC18322797229D000E7EE2 /* AddProject.swift in Sources */,
 				DFAC180027951501000E7EE2 /* ContentView.swift in Sources */,
 				DFAC17FE27951501000E7EE2 /* TaskManagerApp.swift in Sources */,
 			);
@@ -457,8 +461,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,8 +492,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

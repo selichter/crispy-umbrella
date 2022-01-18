@@ -9,7 +9,6 @@ import SwiftUI
 import ComposableArchitecture
 import AppCore
 
-
 @main
 struct TaskManagerApp: App {
     var body: some Scene {
@@ -18,8 +17,8 @@ struct TaskManagerApp: App {
                 initialState: AppState(),
                 reducer: appReducer,
                 environment: AppEnvironment()
-              )
-            )
+                )
+            ).padding(16)
         }
     }
 }

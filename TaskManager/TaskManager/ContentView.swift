@@ -12,12 +12,29 @@ import ComposableArchitecture
 
 struct ContentView: View {
     let store: Store<AppState, AppAction>
-    
+    @State var sheetIsPresented = false
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            ForEach(viewStore.tasks) { task in
-                Text(task.title)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Projects")
+                        .font(.largeTitle)
+                    Spacer()
+                    Image(systemName: "plus.circle")
+                        .onTapGesture {
+                            sheetIsPresented.toggle()
+                        }
+                }
+                
+                ForEach(viewStore.projects) { project in
+                    Text(project.name)
+                }
+                Spacer()
+            }.sheet(isPresented: $sheetIsPresented) {
+                AddProject(store: store, sheetIsPresented: $sheetIsPresented)
             }
+            
         }
     }
 }
