@@ -16,23 +16,27 @@ struct ContentView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Projects")
-                        .font(.largeTitle)
-                    Spacer()
-                    Image(systemName: "plus.circle")
-                        .onTapGesture {
-                            sheetIsPresented.toggle()
+            NavigationView {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Projects")
+                            .font(.largeTitle)
+                        Spacer()
+                        Image(systemName: "plus.circle")
+                            .onTapGesture {
+                                sheetIsPresented.toggle()
+                            }
+                    }
+                    
+                    ForEach(viewStore.projects) { project in
+                        NavigationLink(destination: TasksView(store: store, project: project)) {
+                            Text(project.name)
                         }
+                    }
+                    Spacer()
+                }.sheet(isPresented: $sheetIsPresented) {
+                    AddProject(store: store, sheetIsPresented: $sheetIsPresented)
                 }
-                
-                ForEach(viewStore.projects) { project in
-                    Text(project.name)
-                }
-                Spacer()
-            }.sheet(isPresented: $sheetIsPresented) {
-                AddProject(store: store, sheetIsPresented: $sheetIsPresented)
             }
             
         }

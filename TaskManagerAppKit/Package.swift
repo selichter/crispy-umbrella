@@ -41,6 +41,7 @@ let package = Package(
             name: "AppCore",
             dependencies: ["Models",
                            "ProjectsCore",
+                           "TasksCore",
                             .product(name: "ComposableArchitecture",
                                               package: "swift-composable-architecture")]
         ),
