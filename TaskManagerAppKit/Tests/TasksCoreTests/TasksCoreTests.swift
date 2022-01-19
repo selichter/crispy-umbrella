@@ -31,5 +31,32 @@ class TasksCoreTests: XCTestCase {
 
         }
     }
+    
+    func testToggleCompletedSwitchesTheTasksCompletedState() {
+        let newTaskTitle = "Do Laundry"
+        let taskId = UUID()
+        let projectId = UUID()
+        var task = Task(id: taskId,
+                        title: newTaskTitle,
+                        projectId: projectId)
+        
+        XCTAssert(!task.isCompleted)
+        var state = AppState()
+        state.tasks = [task]
+        
+        task.isCompleted = true
+        let completedTask = task
+        
+        let store = TestStore(
+            initialState: state,
+            reducer: appReducer,
+            environment: AppEnvironment()
+        )
+        
+        store.send(.tasks(.toggleCompleted(taskId))) {
+            $0.tasks = [completedTask]
+        }
+        
+    }
 
 }

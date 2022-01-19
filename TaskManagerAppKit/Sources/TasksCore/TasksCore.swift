@@ -23,6 +23,7 @@ public struct TasksState {
 
 public enum TasksAction {
     case createTask(UUID, String, UUID)
+    case toggleCompleted(UUID)
 }
 
 public let tasksReducer = Reducer<TasksState, TasksAction, TasksEnvironment> { state, action, _ in
@@ -30,6 +31,11 @@ public let tasksReducer = Reducer<TasksState, TasksAction, TasksEnvironment> { s
   case let .createTask(id, taskTitle, projectId):
       let task = Task(id: id, title: taskTitle, projectId: projectId)
       state.tasks.append(task)
+      return .none
+  case let .toggleCompleted(id):
+      if var index = state.tasks.firstIndex { $0.id == id } {
+          state.tasks[index].isCompleted.toggle()
+      }
       return .none
   }
 }
