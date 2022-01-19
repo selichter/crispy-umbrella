@@ -13,14 +13,14 @@ import AppCore
 
 class ProjectsCoreTests: XCTestCase {
 
-    func testCreateProjectAddsEntryToProjectInState() {
+    func testCreateProjectAddsProjectInState() {
         let state = AppState()
         let store = TestStore(
             initialState: state,
             reducer: appReducer,
             environment: AppEnvironment()
         )
-        let projectName = "Ptoject Name"
+        let projectName = "Project Name"
         let projectId = UUID()
 
         let expectedProject = Project(id: projectId, name: projectName)

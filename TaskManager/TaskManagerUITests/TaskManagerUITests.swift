@@ -23,7 +23,16 @@ class TaskManagerUITests: XCTestCase {
         projectTextField.doubleTap()
         projectTextField.typeText(projectName)
         app.buttons["Create Project"].tap()
+        
+        app.buttons[projectName].tap()
         XCTAssert(app.staticTexts[projectName].exists)
+        app.images["Add"].tap()
+        let taskTextfield = app.textFields["taskTitleTextField"]
+        taskTextfield.doubleTap()
+        taskTextfield.typeText("First Task")
+        app.buttons["Add Task"].tap()
+        XCTAssert(app.staticTexts["First Task"].exists)
         
     }
+    
 }

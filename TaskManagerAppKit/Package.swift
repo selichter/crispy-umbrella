@@ -17,7 +17,8 @@ let package = Package(
             name: "Models",
             targets: ["Models"]),
         .library(name: "AppCore", targets: ["AppCore"]),
-        .library(name: "ProjectsCore", targets: ["ProjectsCore"])
+        .library(name: "ProjectsCore", targets: ["ProjectsCore"]),
+        .library(name: "TasksCore", targets: ["TasksCore"])
 
     ],
     dependencies: [
@@ -40,6 +41,7 @@ let package = Package(
             name: "AppCore",
             dependencies: ["Models",
                            "ProjectsCore",
+                           "TasksCore",
                             .product(name: "ComposableArchitecture",
                                               package: "swift-composable-architecture")]
         ),
@@ -51,6 +53,15 @@ let package = Package(
         ),
         .testTarget(
             name: "ProjectsCoreTests",
-            dependencies: ["ProjectsCore", "AppCore"])
+            dependencies: ["ProjectsCore", "AppCore"]),
+        .target(
+            name: "TasksCore",
+            dependencies: ["Models",
+                            .product(name: "ComposableArchitecture",
+                                              package: "swift-composable-architecture")]
+        ),
+        .testTarget(
+            name: "TasksCoreTests",
+            dependencies: ["TasksCore", "AppCore"])
     ]
 )

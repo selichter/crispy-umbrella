@@ -9,31 +9,15 @@ import Foundation
 import ComposableArchitecture
 import Models
 import ProjectsCore
+import TasksCore
 
-public struct SampleEnvironment {
-    public init() {}
-}
 
-public struct SampleState {
-    public var tasks: [Task] = []
-
-    public init(tasks: [Task]) {
-        self.tasks = tasks
-    }
-}
-
-public enum SampleAction {}
-
-public let sampleReducer = Reducer<SampleState, SampleAction, SampleEnvironment> { _, action, _ in
-  switch action {
-  }
-}
 
 public let appReducer = Reducer.combine(
-    sampleReducer.pullback(
-        state: \AppState.sampleTasks,
-        action: /AppAction.sample,
-        environment: { (_: AppEnvironment) in SampleEnvironment() }
+    tasksReducer.pullback(
+        state: \AppState.appTasks,
+        action: /AppAction.tasks,
+        environment: { (_: AppEnvironment) in TasksEnvironment() }
     ),
     projectsReducer.pullback(
         state: \AppState.appProjects,
@@ -43,18 +27,14 @@ public let appReducer = Reducer.combine(
 )
 
 public enum AppAction {
-    case sample(SampleAction)
+    case tasks(TasksAction)
     case project(ProjectAction)
 }
 
 public struct AppState {
     public var projects: [Project] = []
 
-    public var tasks: [Task] = [
-        Task(title: "First Item"),
-        Task(title: "Second Item"),
-        Task(title: "Third Item")
-    ]
+    public var tasks: [Task] = []
 
     public init() { }
 
@@ -67,7 +47,7 @@ public struct AppState {
         }
     }
 
-    public var sampleTasks: SampleState {
+    public var appTasks: TasksState {
         get {
             .init(tasks: self.tasks)
         }
