@@ -10,10 +10,15 @@ import ComposableArchitecture
 import Models
 import ProjectsCore
 import TasksCore
+import TaskCore
 
 
-
-public let appReducer = Reducer.combine(
+public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+    taskReducer.forEach(
+        state: \AppState.tasks,
+        action: /AppAction.task(index:action:),
+        environment: { _  in TaskEnvironment()}
+    ),
     tasksReducer.pullback(
         state: \AppState.appTasks,
         action: /AppAction.tasks,
@@ -26,7 +31,12 @@ public let appReducer = Reducer.combine(
     )
 )
 
-public enum AppAction {
+public enum AppAction: Equatable {
+    public static func == (lhs: AppAction, rhs: AppAction) -> Bool {
+        return lhs.self == rhs.self
+    }
+    
+    case task(index: Int, action: TaskAction)
     case tasks(TasksAction)
     case project(ProjectAction)
 }

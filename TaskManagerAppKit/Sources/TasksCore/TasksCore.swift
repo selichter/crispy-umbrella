@@ -21,7 +21,7 @@ public struct TasksState {
     }
 }
 
-public enum TasksAction {
+public enum TasksAction: Equatable {
     case createTask(UUID, String, UUID)
 }
 
@@ -31,5 +31,6 @@ public let tasksReducer = Reducer<TasksState, TasksAction, TasksEnvironment> { s
       let task = Task(id: id, title: taskTitle, projectId: projectId)
       state.tasks.append(task)
       return .none
+
   }
 }

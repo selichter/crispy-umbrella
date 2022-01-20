@@ -26,10 +26,12 @@ class TasksCoreTests: XCTestCase {
 
         let expectedTask = Task(id: taskId, title: newTaskTitle, projectId: projectId)
 
-        store.send(.tasks(.createTask(taskId, newTaskTitle, projectId))) {
+        store.assert(.send(.tasks(.createTask(taskId, newTaskTitle, projectId))) {
             $0.tasks = [expectedTask]
 
         }
+                     )
     }
+
 
 }
