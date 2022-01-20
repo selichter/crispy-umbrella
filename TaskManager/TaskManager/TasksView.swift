@@ -20,15 +20,19 @@ struct TasksView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(project.name)
+                        .font(.largeTitle)
                     Spacer()
                     Image(systemName: "plus.circle")
                         .onTapGesture {
                             sheetIsPresented.toggle()
                         }
                 }
-                ForEach(viewStore.tasks) { task in
-                    Text(task.title)
-                }
+                .padding(.bottom)
+                
+                ForEachStore(self.store.scope(state: \.tasks,
+                                              action: AppAction.task(index:action:)),
+                             content: TaskRow.init(store:)
+                                             )
                 Spacer()
             }.sheet(isPresented: $sheetIsPresented) {
                 AddTask(store: store,

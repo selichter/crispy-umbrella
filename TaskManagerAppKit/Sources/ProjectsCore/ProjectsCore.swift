@@ -9,7 +9,7 @@ import Foundation
 import Models
 import ComposableArchitecture
 
-public enum ProjectAction {
+public enum ProjectAction: Equatable {
     case createProject(UUID, String)
 }
 

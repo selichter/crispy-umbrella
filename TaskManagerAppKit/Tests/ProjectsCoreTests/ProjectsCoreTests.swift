@@ -25,10 +25,11 @@ class ProjectsCoreTests: XCTestCase {
 
         let expectedProject = Project(id: projectId, name: projectName)
 
-        store.send(.project(.createProject(projectId, projectName))) {
+        store.assert(.send(.project(.createProject(projectId, projectName))) {
             $0.projects = [expectedProject]
 
         }
+                     )
     }
 
 }

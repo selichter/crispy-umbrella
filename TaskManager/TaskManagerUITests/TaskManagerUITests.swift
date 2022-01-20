@@ -33,6 +33,7 @@ class TaskManagerUITests: XCTestCase {
         app.buttons["Add Task"].tap()
         XCTAssert(app.staticTexts["First Task"].exists)
         
+        XCTAssert(app.buttons["circle"].exists)
     }
     
 }
