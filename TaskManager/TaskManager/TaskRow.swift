@@ -20,8 +20,14 @@ struct TaskRow: View {
                     Button(action: { viewStore.send(.toggleCompleted) }) {
                         Image(systemName: viewStore.isCompleted ? "circle.fill" : "circle")
                     }
-                    
-                    Text(viewStore.title)
+                    TextField(
+                      "New Task",
+                      text: viewStore.binding(
+                        get: \.title,
+                        send: TaskAction.taskTitleChanged
+                      )
+                    )
+
                 }
         }
     }

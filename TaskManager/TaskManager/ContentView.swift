@@ -27,7 +27,7 @@ struct ContentView: View {
                                 sheetIsPresented.toggle()
                             }
                     }
-                    
+
                     ForEach(viewStore.projects) { project in
                         NavigationLink(destination: TasksView(store: store, project: project)) {
                             Text(project.name)
@@ -38,7 +38,7 @@ struct ContentView: View {
                     AddProject(store: store, sheetIsPresented: $sheetIsPresented)
                 }
             }
-            
+
         }
     }
 }
