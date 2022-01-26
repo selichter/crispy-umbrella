@@ -13,7 +13,7 @@ class TaskManagerUITests: XCTestCase {
     override func setUp() {
         app.launch()
     }
-    
+
     func testCreateProjectWorkflow() {
         XCTAssert(app.staticTexts["Projects"].exists)
         app.images["Add"].tap()
@@ -23,17 +23,15 @@ class TaskManagerUITests: XCTestCase {
         projectTextField.doubleTap()
         projectTextField.typeText(projectName)
         app.buttons["Create Project"].tap()
-        
+
         app.buttons[projectName].tap()
         XCTAssert(app.staticTexts[projectName].exists)
         app.images["Add"].tap()
-        let taskTextfield = app.textFields["taskTitleTextField"]
+        let taskTextfield = app.textFields["New Task"]
         taskTextfield.doubleTap()
         taskTextfield.typeText("First Task")
-        app.buttons["Add Task"].tap()
-        XCTAssert(app.staticTexts["First Task"].exists)
-        
+
         XCTAssert(app.buttons["circle"].exists)
     }
-    
+
 }

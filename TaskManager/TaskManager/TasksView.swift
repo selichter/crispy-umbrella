@@ -12,9 +12,8 @@ import Models
 
 struct TasksView: View {
     let store: Store<AppState, AppAction>
-    @State var sheetIsPresented = false
     let project: Project
-    
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack(alignment: .leading) {
@@ -24,20 +23,16 @@ struct TasksView: View {
                     Spacer()
                     Image(systemName: "plus.circle")
                         .onTapGesture {
-                            sheetIsPresented.toggle()
+                            viewStore.send(.tasks(.addButtonTapped(UUID(), project.id)))
                         }
                 }
                 .padding(.bottom)
-                
+
                 ForEachStore(self.store.scope(state: \.tasks,
                                               action: AppAction.task(index:action:)),
                              content: TaskRow.init(store:)
                                              )
                 Spacer()
-            }.sheet(isPresented: $sheetIsPresented) {
-                AddTask(store: store,
-                        sheetIsPresented: $sheetIsPresented,
-                        projectId: project.id)
             }
         }
     }

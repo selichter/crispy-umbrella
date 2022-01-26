@@ -13,25 +13,23 @@ import AppCore
 
 class TasksCoreTests: XCTestCase {
 
-    func testCreateTaskAddsTaskToStateState() {
+    func testAddButtonTappedInsertsEmptyTaskIntoState() {
         let state = AppState()
         let store = TestStore(
             initialState: state,
             reducer: appReducer,
             environment: AppEnvironment()
         )
-        let newTaskTitle = "Do Laundry"
+
         let taskId = UUID()
         let projectId = UUID()
 
-        let expectedTask = Task(id: taskId, title: newTaskTitle, projectId: projectId)
+        let expectedTask = Task(id: taskId, title: "", projectId: projectId)
 
-        store.assert(.send(.tasks(.createTask(taskId, newTaskTitle, projectId))) {
+        store.assert(.send(.tasks(.addButtonTapped(taskId, projectId))) {
             $0.tasks = [expectedTask]
-
-        }
-                     )
+            }
+         )
     }
-
 
 }

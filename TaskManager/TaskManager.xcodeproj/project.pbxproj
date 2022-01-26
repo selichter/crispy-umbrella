@@ -19,7 +19,6 @@
 		DFAC183027951625000E7EE2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = DFAC182F27951625000E7EE2 /* ComposableArchitecture */; };
 		DFAC18322797229D000E7EE2 /* AddProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAC18312797229D000E7EE2 /* AddProject.swift */; };
 		DFB17B5E27974B650005BE54 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB17B5D27974B650005BE54 /* TasksView.swift */; };
-		DFB17B6027974F710005BE54 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB17B5F27974F710005BE54 /* AddTask.swift */; };
 		DFB17B622798AF640005BE54 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB17B612798AF640005BE54 /* TaskRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		DFAC182827951526000E7EE2 /* TaskManagerAppKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TaskManagerAppKit; path = ../TaskManagerAppKit; sourceTree = "<group>"; };
 		DFAC18312797229D000E7EE2 /* AddProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProject.swift; sourceTree = "<group>"; };
 		DFB17B5D27974B650005BE54 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
-		DFB17B5F27974F710005BE54 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
 		DFB17B612798AF640005BE54 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +115,6 @@
 				DFAC180327951503000E7EE2 /* Preview Content */,
 				DFAC18312797229D000E7EE2 /* AddProject.swift */,
 				DFB17B5D27974B650005BE54 /* TasksView.swift */,
-				DFB17B5F27974F710005BE54 /* AddTask.swift */,
 				DFB17B612798AF640005BE54 /* TaskRow.swift */,
 			);
 			path = TaskManager;
@@ -302,7 +299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFAC18322797229D000E7EE2 /* AddProject.swift in Sources */,
-				DFB17B6027974F710005BE54 /* AddTask.swift in Sources */,
 				DFAC180027951501000E7EE2 /* ContentView.swift in Sources */,
 				DFB17B622798AF640005BE54 /* TaskRow.swift in Sources */,
 				DFAC17FE27951501000E7EE2 /* TaskManagerApp.swift in Sources */,

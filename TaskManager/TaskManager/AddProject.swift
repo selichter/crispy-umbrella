@@ -13,7 +13,7 @@ struct AddProject: View {
     let store: Store<AppState, AppAction>
     @State private var projectName: String = ""
     @Binding var sheetIsPresented: Bool
-    
+
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack(alignment: .leading) {
@@ -28,7 +28,7 @@ struct AddProject: View {
                 Button("Create Project") {
                     viewStore.send(.project(.createProject(UUID(), projectName)))
                     sheetIsPresented.toggle()
-                    
+
                 }
                Spacer()
             }.padding(16)

@@ -22,15 +22,16 @@ public struct TasksState {
 }
 
 public enum TasksAction: Equatable {
-    case createTask(UUID, String, UUID)
+    case addButtonTapped(UUID, UUID)
 }
 
 public let tasksReducer = Reducer<TasksState, TasksAction, TasksEnvironment> { state, action, _ in
   switch action {
-  case let .createTask(id, taskTitle, projectId):
-      let task = Task(id: id, title: taskTitle, projectId: projectId)
-      state.tasks.append(task)
+  case let .addButtonTapped(taskId, projectId):
+      state.tasks.insert(Task(id: taskId,
+                              title: "",
+                              projectId: projectId),
+                         at: 0)
       return .none
-
   }
 }
