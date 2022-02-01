@@ -44,6 +44,9 @@ public struct AppState {
     public var projects: [Project] = []
 
     public var tasks: [Task] = []
+    public var filter: Filter = .all
+    public var filterTasks: [Task] = []
+    
 
     public init() { }
 
@@ -62,6 +65,7 @@ public struct AppState {
         }
         set {
             self.tasks = newValue.tasks
+//            self.filterTasks = newValue.filterTasks
         }
     }
 

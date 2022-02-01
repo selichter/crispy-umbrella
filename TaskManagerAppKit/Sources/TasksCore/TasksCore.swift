@@ -15,14 +15,17 @@ public struct TasksEnvironment {
 
 public struct TasksState {
     public var tasks: [Task] = []
+    public var filterTasks: [Task] = []
 
     public init(tasks: [Task]) {
         self.tasks = tasks
+        self.filterTasks = tasks
     }
 }
 
 public enum TasksAction: Equatable {
     case addButtonTapped(UUID, UUID)
+    case filterByProject(UUID)
 }
 
 public let tasksReducer = Reducer<TasksState, TasksAction, TasksEnvironment> { state, action, _ in
@@ -33,5 +36,16 @@ public let tasksReducer = Reducer<TasksState, TasksAction, TasksEnvironment> { s
                               projectId: projectId),
                          at: 0)
       return .none
+//      test
+  case let .filterByProject(projectId):
+      state.filterTasks = state.tasks.filter { $0.projectId == projectId }
+      return .none
   }
+}
+
+public enum Filter {
+    case all
+    case active
+    case completed
+    case byProject(UUID)
 }

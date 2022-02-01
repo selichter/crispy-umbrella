@@ -28,12 +28,12 @@ struct TasksView: View {
                 }
                 .padding(.bottom)
 
-                ForEachStore(self.store.scope(state: \.tasks,
+                ForEachStore(self.store.scope(state: \.filterTasks,
                                               action: AppAction.task(index:action:)),
                              content: TaskRow.init(store:)
                                              )
                 Spacer()
-            }
+            }.onAppear { viewStore.send(.tasks(.filterByProject(project.id))) }
         }
     }
 }
